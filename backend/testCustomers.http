@@ -1,0 +1,52 @@
+
+// get all customers
+GET http://localhost:3000/customers HTTP/1.1
+
+###
+
+// create customer
+POST http://localhost:3000/customers HTTP/1.1
+content-type: application/json
+
+{"customerId":2, 
+"firstName": "Jiali1",    
+"lastName": "Johnson2",
+"userName": "Johna2",
+"email": "12@gmail.com",
+"password": "123"
+}
+
+###
+// check login
+POST http://localhost:3000/login HTTP/1.1
+content-type: application/json
+
+{"userName": "John1435", "password": "1234"}
+
+###
+// get customer's products in basket by customer's id
+GET http://localhost:3000/customers/2 HTTP/1.1
+
+###
+# create basket for a customer by id
+post http://localhost:3000/customers/2 HTTP/1.1
+
+###
+# put a products in a customer's basket
+put http://localhost:3000/customers/2/basket/2 HTTP/1.1
+
+###
+# delete a product from a customer's basket
+delete http://localhost:3000/customers/2/basket/2 HTTP/1.1
+
+# // update customer
+# PUT  http://localhost:3000/customers/15 HTTP/1.1
+# content-type: application/json
+
+# {"customerId":15, "customerName": "John Johnson UPDATED!"}
+# ###
+
+# // delete customer
+# DELETE  http://localhost:3000/customers/17 HTTP/1.1
+
+###
