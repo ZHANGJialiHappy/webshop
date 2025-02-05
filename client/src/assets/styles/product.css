@@ -1,0 +1,206 @@
+body {
+  background-color: #033c2d !important;
+  padding: 20px !important;
+}
+
+.btn-primary,
+.btn-primary:hover,
+.btn-primary:active,
+.btn-primary:visited {
+  background-color: #e0b8ff !important;
+  border-color: #e0b8ff !important;
+}
+
+.company-name {
+  color: #e0b8ff !important;
+}
+.nav-bg-color {
+  background-color: #033c2d !important;
+}
+
+.background {
+  background-color: #6a66a3;
+  text-align: center;
+  min-height: 100vh;
+}
+
+.overview {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  min-height: calc(100vh - 200px);
+  margin: 20px auto;
+}
+
+.product {
+  display: flex;
+  height: 70vh;
+  padding: 30px;
+  border-radius: 10px;
+  background-color: #ddd8b8;
+}
+
+.product-image {
+  object-fit: cover;
+  flex: 1;
+  border-radius: 10px;
+  margin-right: 20px;
+}
+
+.product-details {
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-around;
+  align-items: center;
+  text-align: center;
+  border-radius: 10px;
+  padding: 20px;
+  background-color: #fff;
+}
+
+@media only screen and (max-width: 1500px) {
+  .product {
+    width: 80%;
+  }
+}
+
+@media only screen and (max-width: 1100px) {
+  .product {
+    width: 90%;
+  }
+}
+
+@media only screen and (max-width: 955px) {
+  .product {
+    width: 95%;
+  }
+}
+
+@media only screen and (max-width: 900px) {
+  .product {
+    padding: 15px;
+  }
+
+  .product-details {
+    padding: 10px;
+  }
+}
+
+@media only screen and (max-width: 826px) {
+  .col-md-6.mb-2 {
+    width: fit-content;
+  }
+}
+
+@media only screen and (max-width: 767px) {
+  .overview {
+    height: fit-content;
+    width: 75%;
+  }
+
+  .product {
+    width: 90%;
+    flex-direction: column;
+    padding: 10px;
+    height: fit-content;
+    align-items: center;
+  }
+
+  .product-image {
+    margin-right: 0;
+    margin-bottom: 20px;
+    width: 60%;
+  }
+
+  .product-details {
+    padding: 20px;
+  }
+}
+
+@media only screen and (max-width: 550px) {
+  .product-image {
+    width: 100%;
+  }
+}
+
+@media only screen and (max-width: 500px) {
+  .overview {
+    width: 95%;
+  }
+}
+
+.confirmation {
+  position: absolute; /* Change from fixed to absolute */
+  top: 100%;
+  left: 50%;
+  transform: translateX(-50%);
+  right: 5px;
+  background-color: #e0b8ff;
+  color: #000000;
+  padding: 15px;
+  border-radius: 10px;
+  text-align: center;
+  font-size: 18px;
+  margin-top: 10px;
+  margin-bottom: 10px;
+}
+.close-btn {
+  position: absolute;
+  top: 10px;
+  right: 10px;
+  cursor: pointer;
+  background: none;
+  border: none;
+  font-size: 20px;
+  color: #555;
+}
+
+/* ---- user icon ---- */
+
+/* Adjusting the position of the user icon */
+nav .icon {
+  position: absolute;
+  top: 17px; /* Adjust as needed */
+  right: 70px !important;
+}
+
+/* adjusting the user icon */
+nav .icon img {
+  width: 50px;
+}
+
+/* Adjusting the position of the user icon */
+nav .icon {
+  position: absolute;
+  top: 17px; /* Adjust as needed */
+  right: 70px !important;
+}
+
+/* adjusting the user icon */
+nav .icon img {
+  width: 50px;
+}
+
+/* logout button */
+
+#logoutBtn {
+  position: absolute;
+  top: 17px; /* Adjust as needed */
+  right: 80px !important;
+}
+
+/* ---- Signupname ---- */
+#greetingInNavbar {
+  font-size: 18px;
+  color: #e0b8ff;
+  text-align: right;
+  display: inline-block;
+  margin-right: 200px !important;
+}
+
+p {
+  display: block;
+}
+
