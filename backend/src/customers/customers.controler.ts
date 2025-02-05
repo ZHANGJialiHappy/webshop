@@ -1,6 +1,6 @@
-import { Request, Response } from "express";
-
 import * as customerModel from "./customers.model";
+
+import { Request, Response } from "express";
 
 export async function getAllCustomers(req: Request, res: Response) {
   try {
@@ -33,7 +33,7 @@ export async function login(req: Request, res: Response) {
   try {
     const { userName, password } = req.body;
     const customer = await customerModel.login(userName, password);
-    res.send(customer.userName + " is logged in");
+    res.send(customer);
   } catch (error) {
     if (error instanceof Error) {
       res.status(400).send(error.message);
@@ -75,7 +75,9 @@ export async function putProductInBasket(req: Request, res: Response) {
   try {
     let customerId = parseInt(req.params.customerId);
     let productId = parseInt(req.params.productId);
-    await customerModel.putProductInBasket(customerId, productId);
+    let gender = req.body.gender;
+    let size = req.body.size;
+    await customerModel.putProductInBasket(customerId, productId, gender, size);
     let customer = await customerModel.getByID(customerId);
     res.json(customer);
   } catch (error) {
@@ -83,6 +85,32 @@ export async function putProductInBasket(req: Request, res: Response) {
       res.status(400).send(error.message);
     } else {
       res.status(400).send("An unknown error occurred");
+    }
+  }
+}
+
+export async function checkout(req: Request, res: Response) {
+  try {
+    const { user, basket } = req.body;
+
+    if (!user || !basket) {
+      return res.status(400).send("Missing user or basket in request body");
+    }
+
+    const customer = await customerModel.getByUsername(user);
+
+    if (!customer) {
+      return res.status(404).send("Customer not found");
+    }
+
+    await customerModel.updateBasket(customer.customerId, basket);
+
+    res.json(customer);
+  } catch (error) {
+    if (error instanceof Error) {
+      res.status(500).send(error.message);
+    } else {
+      res.status(500).send("An unknown error occurred");
     }
   }
 }

@@ -1,3 +1,242 @@
 .company-name {
-    color: #e0b8ff !important;
-  }
+  color: #e0b8ff !important;
+}
+
+body {
+  background-color: #033c2d !important;
+  padding: 20px !important;
+}
+
+.btn {
+  width: 100%;
+  margin-top: 10px;
+}
+
+.btn-primary,
+.btn-primary:hover,
+.btn-primary:active,
+.btn-primary:visited {
+  background-color: #e0b8ff !important;
+  border-color: #e0b8ff !important;
+}
+
+.company-name {
+  color: #e0b8ff !important;
+}
+
+.nav-bg-color {
+  background-color: #033c2d !important;
+}
+
+.position-relative {
+  position: relative;
+}
+
+.badge {
+  position: absolute;
+  top: -10px;
+  background-color: #dc3545;
+  color: white;
+  border-radius: 50%;
+  padding: 0.5em 0.5em;
+  font-size: 0.8em;
+  display: flex;
+  text-align: center !important;
+  justify-content: center !important;
+  align-items: center;
+  width: 20px;
+  height: 20px;
+}
+
+/* Product list and object styling */
+
+.card-deck {
+  display: grid;
+  margin-top: 1em;
+  grid-template-columns: repeat(auto-fill, minmax(250px, 1fr));
+  gap: 1em;
+}
+
+.card-title {
+  text-align: center;
+  font-size: medium;
+  margin-top: 1em;
+  text-decoration: none;
+}
+
+.card:hover {
+  scale: 105%;
+}
+
+.card-deck img {
+  max-width: 100%;
+  height: auto;
+  padding: 2%;
+}
+
+.card-body {
+  display: flex;
+  justify-content: space-evenly;
+  align-items: center;
+  gap: 10px;
+}
+
+.price-label {
+  position: absolute;
+  left: 0px;
+  bottom: 160px;
+  width: 110px;
+  padding: 5px;
+  background-color: #e0b8ff;
+  text-align: center;
+}
+
+.brand-label {
+  position: absolute;
+  left: 0px;
+  bottom: 200px;
+  width: 110px;
+  padding: 5px;
+  background-color: #e0b8ff;
+  text-align: center;
+}
+
+.no-match-message {
+  color: red;
+  text-align: left;
+  font-weight: bold;
+  font-size: 20;
+}
+
+/* Filter menu styling */
+
+.filter-menu {
+  display: flex;
+  justify-content: left;
+  column-gap: 1em;
+  padding-top: 1em;
+  color: #e0b8ff;
+}
+
+.filter-menu .form-group {
+  width: 120px;
+}
+
+.confirmation {
+  position: absolute;
+  top: 100%;
+  left: 50%;
+  transform: translateX(-50%);
+  right: 5px;
+  background-color: #e0b8ff;
+  color: #000000;
+  padding: 15px;
+  border-radius: 10px;
+  text-align: center;
+  font-size: 18px;
+  margin-top: 10px;
+  margin-bottom: 10px;
+}
+
+.close-btn {
+  position: absolute;
+  top: 10px;
+  right: 10px;
+  cursor: pointer;
+  background: none;
+  border: none;
+  font-size: 20px;
+  color: #555;
+}
+
+nav .icon {
+  position: absolute;
+  top: 17px;
+  right: 70px !important;
+}
+
+nav .icon img {
+  width: 50px;
+}
+
+#logoutBtn {
+  position: absolute;
+  top: 17px;
+  right: 80px !important;
+}
+
+#greetingInNavbar {
+  font-size: 18px;
+  color: #e0b8ff;
+  text-align: right;
+  display: inline-block;
+  margin-right: 200px !important;
+}
+
+/* Home Page styling */
+.Home h1 {
+  text-align: center;
+  color: #e0b8ff;
+  margin-top: 1em;
+}
+
+.Home hr {
+  display: block;
+  margin-top: 0.5em;
+  margin-bottom: 0.5em;
+  margin-left: auto;
+  margin-right: auto;
+  border-style: inset;
+  border-width: 1px;
+}
+
+/* NewItemsCarousel styling */
+
+.carousel-container {
+  height: max-content;
+}
+
+.carousel-item {
+  display: flex;
+}
+
+.carousel-card {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  text-align: center;
+  padding: 10px;
+}
+
+.carousel-card:hover {
+  scale: 105%;
+}
+
+.carousel-card-img {
+  max-width: 50%;
+  border-radius: 5px;
+}
+
+.carousel-card-info {
+  background-color: rgba(0, 0, 0, 0.5);
+  padding: 10px;
+  border-radius: 5px;
+  width: fit-content;
+  margin: 0 auto;
+  margin-bottom: 15px;
+}
+
+.carousel-card-info h5 {
+  font-size: 18px;
+  margin-bottom: 5px;
+  color: #fff;
+}
+
+.carousel-card-info p {
+  margin: 0;
+  color: #ddd;
+}
+
+.make-wider {
+  min-width: fit-content;
+}

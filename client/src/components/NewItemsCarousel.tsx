@@ -3,7 +3,6 @@ import '../App.css';
 
 import Carousel from 'react-multi-carousel';
 import { Link } from 'react-router-dom';
-import { Product } from '../interfaces/products';
 import React from 'react';
 import { useFetchProducts } from '../hooks/useFetchProducts';
 

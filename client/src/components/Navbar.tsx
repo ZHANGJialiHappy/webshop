@@ -1,7 +1,6 @@
 import "../App.css";
 
 import { CgProfile } from "react-icons/cg";
-import { FC } from "react";
 import { FaShoppingCart } from "react-icons/fa";
 import { Link } from "react-router-dom";
 import logo from "../assets/images/logo.jpg";

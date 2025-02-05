@@ -1,0 +1,249 @@
+
+
+/* Styles for normal view  */
+.cart-container {
+    width: 100%;
+    max-width: 800px;
+    margin: 0 auto;
+    background-color: #f5f5f5;
+    padding: 20px;
+    border-radius: 10px;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+  }
+  
+  .cart-heading {
+    margin-bottom: 20px; /* Adding some space below the heading */
+  }
+  
+ p { display: block;}
+
+  .cart-item {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 10px 20px;
+    margin-bottom: 10px;
+    background-color: #ffffff;
+    border-radius: 10px;
+    box-shadow: 0 0 5px rgba(0, 0, 0, 0.1);
+    position: relative;
+  }
+  
+  .cart-item img {
+    width: 100px;
+    height: auto;
+    margin-right: 20px;
+    margin-left: 10px;
+  }
+  
+  .cart-item-details {
+    flex-grow: 1;
+  }
+  
+  .cart-item-actions {
+    display: flex;
+    align-items: center;
+  }
+  
+  .quantity-control {
+    display: flex;
+    align-items: center;
+  }
+  
+  .quantity-control p {
+    margin-right: 10px;
+  }
+  
+  .quantity-control button {
+    margin: 0 5px;
+    padding: 3px 7px;
+    background-color: #e0e0e0;
+    border: 1px solid #ccc;
+    border-radius: 3px;
+    cursor: pointer;
+  }
+  
+  .quantity-control .quantity-number {
+    font-size: 1.5em;
+    font-weight: bold;
+    margin: 0 10px;
+  }
+  
+  .remove-button {
+    position: absolute;
+    top: 10px;
+    right: 10px;
+    background: none;
+    border: none;
+    color: #ff0000;
+    font-size: 1.5em;
+    cursor: pointer;
+  }
+  
+  .remove-button:hover {
+    color: #cc0000;
+  }
+  
+  .total {
+    text-align: right;
+    margin-top: 20px;
+    font-weight: bold;
+    font-size: 18px;
+    color: #333;
+    padding-right: 20px;
+  }
+  
+/* Buttons in normal view */
+
+
+  #buttons-cart-container {
+    display: flex;
+    justify-content: flex-end;
+    align-items: center; 
+    padding-top: 20px;
+    gap: 10px; 
+  }
+  
+  #continueshoppingbtn,
+  #Checkout {
+    display: inline-block;
+    padding: 15px 20px;
+    text-align: center;
+    color: black;
+    font-size: 18px;
+    border-radius: 5px;
+    font-weight: bold;
+    cursor: pointer;
+    background-color: #e0b8ff; /* having the purple as default button background color */
+    border: none; /* no border */
+  }
+  
+  #continueshoppingbtn {
+    background-color: #9ed59e !important; /* Light green color bc nice*/
+  }
+  
+  
+  .empty-message {
+    color: #333;
+  }
+  
+  
+  
+  /* Styles for responsive view */
+
+
+  @media (max-width: 768px) {
+    .cart-container {
+      padding: 10px;
+    }
+  
+    .cart-heading {
+      margin-bottom: 20px; 
+    }
+  
+    .cart-item {
+      flex-direction: column;
+      align-items: flex-start;
+    }
+  
+    .cart-item img {
+      margin-bottom: 10px;
+    }
+  
+    .cart-item-details {
+      margin-right: 0;
+      margin-bottom: 10px;
+    }
+  
+    .quantity-control {
+      margin-bottom: 10px;
+    }
+  
+    .total {
+      padding-right: 10px; /* Add padding to move total price a bit to left */
+    }
+  
+    #buttons-cart-container {
+      flex-direction: column;
+      text-align: center;
+    }
+  
+    #clearCartBtn {
+      width: 90%;
+      margin: 20px auto !important;
+      display: block;
+    }
+  
+    #Checkout {
+      width: 90%;
+      display: block;
+      text-align: center;
+    }
+
+    #continueshoppingbtn {
+      width: 90%;
+      margin-bottom: 20px !important;
+      margin-top: 20px;
+    }
+  }
+  
+  @media (max-width: 576px) {
+    .cart-container {
+      width: 100%;
+      padding: 10px;
+    }
+  
+    .cart-heading {
+      margin-bottom: 20px; 
+    }
+  
+    .cart-item {
+      flex-direction: column;
+      align-items: flex-start;
+    }
+  
+    .cart-item img {
+      margin-bottom: 10px;
+      margin-right: 10px;
+    }
+  
+    .cart-item-details {
+      margin-right: 0;
+      margin-bottom: 10px;
+    }
+  
+    .quantity-control {
+      margin-bottom: 10px;
+    }
+  
+    .total {
+      padding-right: 10px; 
+    }
+  
+
+    #buttons-cart-container {
+      text-align: center;
+    }
+  
+
+    #clearCartBtn {
+      width: 90%;
+      margin: 20px auto;
+      display: block;
+    }
+
+    #Checkout {
+      width: 90%;
+      margin-bottom: 10px;
+      margin-top: 50px;
+      display: block;
+      text-align: center;
+    }
+
+    #continueshoppingbtn {
+      width: 100%;
+      margin-bottom: 20px !important;
+      margin-top: 10px;
+    }
+  }
+  

@@ -1,5 +1,6 @@
 import * as fs from "fs/promises";
 import * as productModel from "../products/products.model";
+
 import { Product } from "../products/products.model";
 
 const CUSTOMERS_FILE = "./data/customers.json";
@@ -11,8 +12,36 @@ interface Customer {
   userName: string;
   email: string;
   password: string;
-  basket: Product[];
+  basket: ProductItem[];
 }
+
+type ProductItem = {
+  productId: number;
+  name: string;
+  img: string;
+  type: string;
+  gender: string;
+  brand: string;
+  size: string;
+  price: number;
+  new: boolean;
+  discount: boolean;
+  quantity: number;
+};
+
+type BasketItem = {
+  productId: number;
+  name: string;
+  img: string;
+  type: string;
+  gender: string;
+  brand: string;
+  size: string;
+  price: number;
+  new: boolean;
+  discount: boolean;
+  quantity: number;
+};
 
 // return all customer from file
 export async function getAll(): Promise<Customer[]> {
@@ -41,19 +70,34 @@ export async function createBasket(customerId: number): Promise<void> {
 
 export async function putProductInBasket(
   customerId: number,
-  productId: number
+  productId: number,
+  gender: string,
+  size: string
 ) {
   let customerArray = await getAll();
   let index = findCustomerById(customerArray, customerId);
   if (index === -1)
     throw new Error(`Customer with ID: ${customerId} doesn't exist`);
-  let product = customerArray[index].basket.find(
-    (currProduct) => currProduct.productId === productId
+
+  const productIndex = customerArray[index].basket.findIndex(
+    (currProduct: ProductItem) =>
+      currProduct.productId === productId &&
+      currProduct.gender === gender &&
+      currProduct.size === size
   );
-  if (product !== undefined)
-    throw new Error(`Product with ID: ${productId} already in basket`);
-  product = await productModel.getByID(productId);
-  customerArray[index].basket.push(product);
+
+  const product = await productModel.getByID(productId);
+
+  if (productIndex === -1) {
+    const productItem = { ...product, gender, size, quantity: 1 };
+    customerArray[index].basket.push(productItem);
+  } else {
+    customerArray[index].basket[productIndex] = {
+      ...customerArray[index].basket[productIndex],
+      quantity: customerArray[index].basket[productIndex].quantity + 1,
+    };
+  }
+
   await save(customerArray);
 }
 
@@ -95,6 +139,18 @@ function findCustomerByUsername(
   );
 }
 
+export async function updateBasket(customerId: number, basket: BasketItem[]) {
+  let customerArray = await getAll();
+  let index = findCustomerById(customerArray, customerId);
+
+  customerArray[index].basket = basket.map((item) => ({
+    ...item,
+    gender: item.gender[0],
+    size: item.size[0],
+  }));
+  await save(customerArray);
+}
+
 // get gustomer by ID
 export async function getByID(customerId: number) {
   let customerArray = await getAll();
@@ -104,14 +160,24 @@ export async function getByID(customerId: number) {
   else return customerArray[index];
 }
 
+export async function getByUsername(username: string) {
+  let customerArray = await getAll();
+  let index = findCustomerByUsername(customerArray, username);
+  if (index === -1) {
+    throw new Error(`Customer with username:${username} doesn't exist`);
+  } else {
+    return customerArray[index];
+  }
+}
+
 export async function login(username: string, password: string) {
   let customerArray = await getAll();
   let index = findCustomerByUsername(customerArray, username);
-  if (index === -1) throw new Error(`${username} doesn't exist`);
+  if (index === -1) return `${username} doesn't exist`;
   if (customerArray[index].password !== password) {
-    throw new Error("username and password don't match");
+    return "username and password don't match";
   }
-  return customerArray[index];
+  return "Hi, " + customerArray[index].userName;
 }
 
 // create a new customer

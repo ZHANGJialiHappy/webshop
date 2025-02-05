@@ -1,13 +1,19 @@
-import express from "express";
 import { categoriesRouter } from "./categories/categories.route";
+import cors from "cors";
 import { customersRouter } from "./customers/customers.route";
+import express from "express";
 import { productsRouter } from "./products/products.route";
 
 const app = express();
 const PORT = 3000;
 
-// Middleware to parse JSON bodies
 app.use(express.json());
+
+app.use(
+  cors({
+    origin: "http://localhost:3001",
+  })
+);
 
 // Route handlers for different APIs
 app.use(categoriesRouter);

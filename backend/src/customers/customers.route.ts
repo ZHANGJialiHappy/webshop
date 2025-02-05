@@ -1,13 +1,15 @@
-import express from "express";
 import {
-  postCustomer,
-  login,
+  checkout,
+  createBasket,
   getAllCustomers,
   getCustomerBasket,
-  createBasket,
+  login,
+  postCustomer,
   putProductInBasket,
   removeProductFromBasket,
 } from "./customers.controler";
+
+import express from "express";
 
 export const customersRouter = express.Router();
 
@@ -19,6 +21,7 @@ customersRouter.post("/login", login);
 customersRouter.get("/customers", getAllCustomers);
 customersRouter.get("/customers/:id", getCustomerBasket);
 customersRouter.post("/customers/:id", createBasket);
+customersRouter.post("/checkout", checkout);
 customersRouter.put(
   "/customers/:customerId/basket/:productId",
   putProductInBasket

@@ -1,7 +1,7 @@
 # ABCJKM Online Store
 
 This repository contains a webshop built by Group 5 for the FRWAW course at ITU.
-
+![](demo.jpg)
 ## Installation
 
 Our application is divided into two areas, representing the functionality of two different components; backend and client (frontend). As these components are essentially distinct applications that are hosted on separate instances, they have individual dependencies that are required in order to run.

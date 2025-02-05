@@ -1,40 +1,55 @@
 import { Request, Response } from "express";
 import * as productModel from "./products.model";
 
-export async function getAllProducts(
-  req: Request,
-  res: Response
-): Promise<void> {
+export async function getAllProducts(req: Request, res: Response): Promise<void> {
   try {
-    let { type, new: isNew, discount } = req.query; // Extracting query parameters
+    let { gender, type, brand, size, new: isNew, discount } = req.query; // Extracting query parameters
+    
     // Filtering products based on query parameters
-    let typeQuery: string | undefined = type as string;
+    let genderQuery = gender as string | undefined;
+    let typeQuery = type as string | undefined;
+    let brandQuery = brand as string | undefined;
+    let sizeQuery = size as string | undefined;
     let isNewQuery: boolean | undefined =
-      isNew !== undefined
-        ? (isNew as string).toLowerCase() === "true"
-        : undefined;
+      isNew !== undefined ? (isNew as string).toLowerCase() === "true" : undefined;
     let discountQuery: boolean | undefined =
-      discount !== undefined
-        ? (discount as string).toLowerCase() === "true"
-        : undefined;
+      discount !== undefined ? (discount as string).toLowerCase() === "true" : undefined;
 
     let filteredProducts = await productModel.getAll();
 
+    if (genderQuery) {
+      filteredProducts = filteredProducts.filter(product =>
+        product.gender.includes(genderQuery)
+      );
+    }
+
     if (typeQuery) {
       filteredProducts = filteredProducts.filter(
-        (product) => product.type.toLowerCase() === typeQuery
+        product => product.type.toLowerCase() === typeQuery.toLowerCase()
+      );
+    }
+
+    if (brandQuery) {
+      filteredProducts = filteredProducts.filter(
+        product => product.brand.toLowerCase() === brandQuery.toLowerCase()
+      );
+    }
+
+    if (sizeQuery) {
+      filteredProducts = filteredProducts.filter(product =>
+        product.size.includes(sizeQuery)
       );
     }
 
     if (isNewQuery !== undefined) {
       filteredProducts = filteredProducts.filter(
-        (product) => product.new === isNewQuery
+        product => product.new === isNewQuery
       );
     }
 
     if (discountQuery !== undefined) {
       filteredProducts = filteredProducts.filter(
-        (product) => product.discount === discountQuery
+        product => product.discount === discountQuery
       );
     }
 
