@@ -1,6 +1,6 @@
 # ABCJKM Online Store
 
-This repository contains a webshop built by Group 5 for the FRWAW course at ITU.
+This repository contains a webshop built the "full stack and software architecture" course at ITU.
 ![](demo.jpg)
 ## Installation
 
